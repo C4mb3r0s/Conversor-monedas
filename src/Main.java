@@ -2,13 +2,19 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
+    // Creamos el main con las excepciones necesarias para la peticion al APIService
     public static void main(String[] args) throws IOException, InterruptedException {
+        // Llamamos al APIService y lo agregamos a la variable service
         APIService service = new APIService();
+        // Abrimos el Scanner
         Scanner lecture = new Scanner(System.in);
+        // Creamos las variables necesarias para el conversor
         double monedaDeCambio;
         int opcion;
 
+        // Usamos el Loop do-while
         do {
+            // Creamos el menú para el conversor
             System.out.println("******************************************************************");
             System.out.println("Sea bienvenido al conversor de Moneda\n");
             System.out.println("******************************************************************");
@@ -26,12 +32,20 @@ public class Main {
             opcion = lecture.nextInt();
             System.out.println("******************************************************************");
 
+            // Con ayuda de Switch pasamos la variable opçion, para saber que parte del código correra, dependiendo
+            // de la seleccion del usuario
            switch (opcion){
                 case 1:
+                    // Le decimos al usuario que que realizará
                     System.out.println("Se realizará la conversion de Dólar americano a Peso argentino -->");
                     System.out.println("Ingresa la cantidad de Dolares americanos que posees:");
+                    // El usuario ingresara el monto que posee
                     monedaDeCambio = lecture.nextDouble();
                     System.out.println("******************************************************************");
+                    // Se imprimira el enunciado junto con la cantidad obtenida de la conversion
+                    // el valor de service.GestionDeConstulta, es el metodo para obtener la conversion
+                    // Teniendo como parametros 3 datos, que es la nomenglatura de cada moneda, que es la de monedaDeOrigen -> Moneda actual
+                    // La monedaDestino -> Moneda a la que se hara la conversion, y por ultimmo moneda de cambio -> Cantidad a convertir
                     System.out.println("Tienes total de: "+ service.GestionDeConsulta("USD","ARS", monedaDeCambio) + " Pesos argentinos");
                     break;
                 case 2:
@@ -84,9 +98,12 @@ public class Main {
                     System.out.println("Tienes total de: "+ service.GestionDeConsulta("MXN","USD", monedaDeCambio) + " Dolares americanos.");
                     break;
                 default:
+                    // si la opción que selecciono el usuario no existe mandara el siguiente enunciado
                     System.out.println("Opcion no encontrada, intenta de nuevo");
             }
+            // si la opcion es cero se cerrara el programa
         } while (opcion != 0);
+        // Al finalizar el programa se mostrara el siguiente agradecimiento
         System.out.println("Gracias por usar nuestro conversor de monedas");
     }
 }
