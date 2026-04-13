@@ -10,8 +10,8 @@ import com.google.gson.JsonObject;
 public class APIService {
     // Creamos dos variables privadas, una para la URL, y otra para tu ApiKey
     private String urlBase = "https://v6.exchangerate-api.com/v6/";
-    // Ingresa tu ApiKey entre las comillas del contenido de la siguiente variable
-    private String claveApi = "1e75000eb93c8a2181b4da7c";
+    // Ingresa tu ApiKey en la variable de entorno EXCHANGE_API_KEY
+    private String claveApi = System.getenv("EXCHANGE_API_KEY");
 
     // Creamos un metodo double ya que solo se retornara un valor de dicho tipo añadiendo las excepciones
     // y de igual manera esperando 3 parametros del main

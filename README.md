@@ -52,9 +52,13 @@ Interactive CLI menu with 8 conversion options:
 - Java 11 or higher
 - An API key from [ExchangeRate-API](https://www.exchangerate-api.com/)
 
-### Configuration
+### Environment Variables
 
-Replace the API key in `src/APIService.java` with your own key.
+```bash
+export EXCHANGE_API_KEY=your_api_key_here
+```
+
+Get a free API key at [exchangerate-api.com](https://www.exchangerate-api.com/).
 
 ### Run
 
